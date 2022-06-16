@@ -2,7 +2,7 @@ import app from "./app.js";
 
 const port = app.get("port");
 
-app.get("/", (req, res) =>
+app.get("/", (_req, res) =>
   res.json({ status: 200, message: "server is online" })
 );
 
