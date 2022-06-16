@@ -13,22 +13,22 @@
 ## Sections App
 
 1. Feed
-	1.1 Box to add new posts
-	1.2 user's posts
+1.1 Box to add new posts
+1.2 user's posts
 
 2. Dashboard
-	2.1 Box to add new tasks
-	2.2 Your Tasks, sorted by topics
+2.1 Box to add new tasks
+2.2 Your Tasks, sorted by topics
 
 3. Messages
-	3.1 You can send messages to your friends
+3.1 You can send messages to your friends
 
 4. people
-	4.1 Inputs to search people 
-	4.2 Button to add friend
+4.1 Inputs to search people 
+4.2 Button to add friend
 
 5. Profile
-	5.1 tipical profile
+5.1 tipical profile
 
 
 
