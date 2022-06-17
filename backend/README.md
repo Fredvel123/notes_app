@@ -17,9 +17,10 @@ https://www.example.com/api/users/all
 ~~~
 
 ``` js
-const getAllUsers = async () => {} 
+const getAllUsers = async () => {
     const url = 'https://www.example.com/api/users/all';
     const request = await fetch(url);
     const response = await request.json();
     return response;
+}     
 ```
