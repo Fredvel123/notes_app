@@ -1,19 +1,20 @@
-CREATE TABLE IF NOT EXISTS "user" (
-  "id" SERIAL PRIMARY KEY,
-  "first_name" varchar(25),
-  "middle_name" varchar(25),
-  "last_name" varchar(60),
-  "username" varchar(30),
-  "created_at" timestamp,
-  "country_code" int,
-  "number_phone" int,
-  "password" text,
-  "email" varchar(100),
-  "bio" text,
-  "pic_profile" text,
-  "pic_id" TEXT,
-  "key_confirm_email" varchar(12),
-  "email_confirmed" boolean
+CREATE TABLE IF NOT EXISTS "users" (
+  id SERIAL PRIMARY KEY,
+  first_name varchar(25),
+  middle_name varchar(25),
+  last_name varchar(60),
+  username varchar(30),
+  country_code int,
+  number_phone int,
+  password text,
+  email varchar(100),
+  bio text,
+  pic_profile text,
+  pic_id TEXT,
+  key_confirm_email VARCHAR(12),
+  email_confirmed BOOLEAN,
+  createdAt timestamp NOT NULL,
+  updatedAt timestamp NOT NULL,
 );
 
 CREATE TABLE "friendship" (
