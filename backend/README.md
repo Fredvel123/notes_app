@@ -24,3 +24,29 @@ const getAllUsers = async () => {
     return response;
 }     
 ```
+
+## Create New User (Sign Up)
+
+METHOD: POST
+~~~
+https://www.example.com/api/auth/signup 
+~~~
+
+``` js
+const createNewUser = async () => {
+    const url = 'https://www.example.com/api/auth/signup';
+    const request = await fetch(url, {
+        method: "POST",
+        header: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            username: "username",
+            email: "email@example.com",
+            password: "yourpassword"
+        })
+    });
+    const response = await request.json();
+    return response;
+}     
+```
