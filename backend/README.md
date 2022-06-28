@@ -37,7 +37,7 @@ const createNewUser = async () => {
     const url = 'https://www.example.com/api/auth/signup';
     const request = await fetch(url, {
         method: "POST",
-        header: {
+        headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
