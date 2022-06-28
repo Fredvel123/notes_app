@@ -41,9 +41,9 @@ const createNewUser = async () => {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
-            username: "username",
-            email: "email@example.com",
-            password: "yourpassword"
+            username: "username", // greater than 5 and less than 30 characters
+            email: "email@example.com", // no empty email
+            password: "yourpassword" // greater than 5 and less than 25 characters
         })
     });
     const response = await request.json();
