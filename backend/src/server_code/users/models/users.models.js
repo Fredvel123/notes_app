@@ -3,7 +3,8 @@ import sequelize from '../../../config/database/db.connection.js';
 
 const usersModel = sequelize.define('users' ,{
     id: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.UUID,
+        autoIncrement: true, 
         primaryKey: true
     },
     first_name: {
@@ -16,20 +17,21 @@ const usersModel = sequelize.define('users' ,{
         type: DataTypes.TEXT // only 60 characterers
     },
     username: {
-        type: DataTypes.TEXT // only 30 characterers
+        type: DataTypes.TEXT, // only 30 characterers
+        unique: true
     },
-    createdat: {
-        type: "TIMESTAMP",
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
-    updatedat: {
-        type: "TIMESTAMP",
-        defaultValue: sequelize.literal(
-          "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-        ),
-        allowNull: false,
-    },
+    // createdat: {
+    //     type: "TIMESTAMP",
+    //     defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    //     allowNull: false,
+    // },
+    // updatedat: {
+    //     type: "TIMESTAMP",
+    //     defaultValue: sequelize.literal(
+    //       "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+    //     ),
+    //     allowNull: false,
+    // },
     country_code: {
         type: DataTypes.INTEGER
     },
@@ -42,7 +44,8 @@ const usersModel = sequelize.define('users' ,{
     },
     email: {
         type: DataTypes.TEXT, // only 100 characterers
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     bio: {
         type: DataTypes.TEXT

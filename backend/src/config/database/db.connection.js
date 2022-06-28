@@ -5,6 +5,7 @@ const sequelize = new Sequelize({
   database: "notes_app",
   password: "freddy",
   dialect: "postgres",
+  logging: false
 });
 
 const testDatabase = async () => {
