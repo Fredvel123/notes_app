@@ -1,5 +1,7 @@
 import UsersDB from '../models/users.models.js';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { envVar } from '../../../config/dotenv/index.js'
 
 // sign in - create new user
 export const createNewUser = async (req, res) => {
@@ -22,7 +24,9 @@ export const createNewUser = async (req, res) => {
                             const newUser = await UsersDB.create({
                                 password: passwordHashed,
                                 email,
-                                username
+                                username,
+                                email_confirmed: false,
+                                key_confirm_email: '' // create a function to add a code random
                             })
                             res.json({
                                 status: 200,
@@ -63,3 +67,33 @@ export const createNewUser = async (req, res) => {
         }
     }
 };
+
+// login user created
+export const logInUser = async (req, res) => {
+    const { email, password } = req.body
+    const user = await UsersDB.findOne({where: {email}});
+    if(user) {
+        const passwordValid = await bcrypt.compare(password, user.password);
+        if(passwordValid) {
+            const token = jwt.sign(
+                {id: user.id}, 
+                envVar.secretKeyJWT, 
+                {expiresIn: 60*60*24*14}  
+            )
+            res.json({
+                auth: true,
+                token
+            })
+        }else {
+            res.json({
+                auth: false,
+                message: "your passoword is not correct"
+            })
+        }
+    } else {
+        res.json({
+            auth: false,
+            message: 'email incorrect, please make sure your email is correct'
+        })
+    }
+}
