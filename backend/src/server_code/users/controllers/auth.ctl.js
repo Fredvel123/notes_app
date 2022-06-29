@@ -2,6 +2,7 @@ import UsersDB from '../models/users.models.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { envVar } from '../../../config/dotenv/index.js'
+import { keyRandom } from '../helpers/key.random.js';
 
 // sign in - create new user
 export const createNewUser = async (req, res) => {
@@ -26,7 +27,7 @@ export const createNewUser = async (req, res) => {
                                 email,
                                 username,
                                 email_confirmed: false,
-                                key_confirm_email: '' // create a function to add a code random
+                                key_confirm_email: keyRandom(12) // this is a random string
                             })
                             res.json({
                                 status: 200,
