@@ -1,14 +1,14 @@
 import app from '../app.js';
 import request  from 'supertest';
+export const user = {
+    username: 'admin_user', 
+    email: 'admin@gmail.com',
+    password: "admin123"
+}
+export let token = '';
 
 describe('POST Create user', () => {
-    const signUrl = '/api/auth/signup';
-    const user = {
-        username: 'admin_user', 
-        email: 'admin@gmail.com',
-        password: "admin123"
-    }
-
+    const signUrl = '/api/auth/signup'; 
     it('no email - missing email', async () => {
         user.email = ''
         const response = await request(app).post(signUrl).send(user)

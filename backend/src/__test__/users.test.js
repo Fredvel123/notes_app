@@ -10,12 +10,12 @@ describe('GET /api/users/all', () => {
         expect(res.statusCode).toBe(200)
         expect(res.body.message).toEqual('there are no users yet')
     });
-    // it('There are users', async () => {
-    //     const res = await request(app)
-    //         .get(url)
-    //         .send()
-    //     expect(res.body).toEqual([]);
-    // });
+    it('There are users', async () => {
+        const res = await request(app)
+            .get(url)
+            .send()
+        expect(res.body).toEqual([]);
+    });
     // it('', async () => {});
     // it('', async () => {});
     // it('', async () => {});

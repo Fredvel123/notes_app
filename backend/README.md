@@ -25,6 +25,30 @@ const getAllUsers = async () => {
 }     
 ```
 
+## Register User (Log In)
+
+METHOD: POST
+~~~
+https://www.example.com/api/auth/login 
+~~~
+
+``` js
+const registerUser = async () => {
+    const url = 'https://www.example.com/api/auth/login';
+    const request = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            email: "email@example.com", 
+            password: "yourpassword" 
+        })
+    });
+    const response = await request.json();
+    return response;
+}     
+```
 ## Create New User (Sign Up)
 
 METHOD: POST
