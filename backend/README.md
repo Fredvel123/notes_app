@@ -8,11 +8,11 @@ you can see in the db design pdf
 
 # Getting Started
 
-~~~~~`````````~`~
+~~~
 git clone https://github.com/Fredvel123/notes_app.git
 cd backend/
 yarn dev
-``~~~````````````
+~~~
 
 # End Points REST Api
 
