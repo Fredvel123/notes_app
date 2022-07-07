@@ -11,17 +11,36 @@ import profileIcon from '../../../assets/profile.png';
 import { Link } from 'react-router-dom';
 // regular expresions
 import { regExp } from '../../../configs/regExp';
+// endpoints
+import { signUpUrl } from '../../../configs/endpoints';
 
 function Form() {
 	const [email, setEmail] = useState({ value: '', isValid: null });
 	const [username, setUsername] = useState({ value: '', isValid: null });
 	const [password, setPassword] = useState({ value: '', isValid: null });
 
+	// creating new user and connection with server
+	const createNewUser = async () => {
+		const request = await fetch(signUpUrl, {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify({
+				username: username.value, // greater than 5 and less than 30 characters
+				email: email.value, // no empty email
+				password: password.value, // greater than 5 and less than 25 characters
+			}),
+		});
+		const response = await request.json();
+		return response;
+	};
+
 	const handlerSubmit = (e) => {
 		e.preventDefault();
-		console.log(email);
-		console.log(password);
-		console.log(username);
+		if ((email.isValid, password.isValid, username.isValid)) {
+			console.log(createNewUser());
+		}
 	};
 
 	return (
