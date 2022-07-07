@@ -31,6 +31,7 @@ export const FormStyles = styled.div`
 		border-radius: 10px;
 		margin-left: 82%;
 		margin-top: 4vh;
+		cursor: pointer;
 	}
 	.footer {
 		display: flex;
