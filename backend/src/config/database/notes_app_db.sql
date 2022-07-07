@@ -12,9 +12,7 @@ CREATE TABLE IF NOT EXISTS "users" (
   pic_profile text,
   pic_id TEXT,
   key_confirm_email VARCHAR(12),
-  email_confirmed BOOLEAN,
-  createdAt timestamp NOT NULL,
-  updatedAt timestamp NOT NULL,
+  email_confirmed BOOLEAN DEFAULT false ,
 );
 
 CREATE TABLE "friendship" (

@@ -1,6 +1,5 @@
 import app from '../app.js';
 import request from 'supertest';
-// import sequelize from '../config/database/db.connection.js';
 
 export let user = {
 	username: 'admin_user',
@@ -60,6 +59,7 @@ describe('POST Create user', () => {
 		expect(response.body.isCreated).toBe(false);
 	});
 });
+
 describe('POST Create user', () => {
 	const logInUrl = '/api/auth/login';
 
