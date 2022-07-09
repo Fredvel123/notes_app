@@ -22,7 +22,7 @@ export const FormStyles = styled.div`
 	form {
 		margin-top: 8vh;
 	}
-	button {
+	.enable {
 		font-size: 15px;
 		background: ${colors.sky};
 		border: none;
@@ -33,6 +33,28 @@ export const FormStyles = styled.div`
 		margin-top: 4vh;
 		cursor: pointer;
 	}
+	.disable {
+		font-size: 15px;
+		background: red;
+		color: white;
+		border: none;
+		padding: 3vh 6%;
+		border-radius: 10px;
+		margin-left: 82%;
+		margin-top: 4vh;
+		cursor: pointer;
+	}
+	/* button {
+		font-size: 15px;
+		background: ${colors.sky};
+		border: none;
+		padding: 3vh 6%;
+		color: white;
+		border-radius: 10px;
+		margin-left: 82%;
+		margin-top: 4vh;
+		cursor: pointer;
+	} */
 	.footer {
 		display: flex;
 		align-items: center;
@@ -51,7 +73,10 @@ export const FormStyles = styled.div`
 	@media screen and (max-width: 800px) {
 		width: 70%;
 		margin-left: 15%;
-		button {
+		.enable {
+			margin-left: 79%;
+		}
+		.disable {
 			margin-left: 79%;
 		}
 	}
@@ -62,7 +87,10 @@ export const FormStyles = styled.div`
 		form {
 			margin-top: 4vh;
 		}
-		button {
+		.enable {
+			margin-left: 77%;
+		}
+		.disable {
 			margin-left: 77%;
 		}
 	}
@@ -109,5 +137,26 @@ export const InputStyles = styled.div`
 		top: 22px;
 		left: 10px;
 		position: absolute;
+	}
+	@media screen and (max-width: 650px) {
+		input {
+			font-size: 13px;
+		}
+		img {
+			top: 20px;
+			left: 5px;
+		}
+	}
+`;
+
+export const ResponseStyles = styled.div`
+	font-family: ${fonts.extra};
+	margin-top: 3vh;
+	@media screen and (max-width: 450px) {
+		margin-top: 0;
+		margin-bottom: 5vh;
+	}
+	@media screen and (max-width: 650px) {
+		padding-bottom: 4vh;
 	}
 `;
