@@ -7,8 +7,9 @@ import Inputs from './Inputs';
 // endpoints
 import { logInUrl } from '../../../configs/endpoints';
 // redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAuth } from '../../../redux/slices/auth';
+import ResponseLogin from './ResponseLogin';
 
 function Form() {
 	const [email, setEmail] = useState('');
@@ -30,6 +31,7 @@ function Form() {
 		const res = await post.json();
 		dispatch(setAuth(res));
 	};
+	const auth = useSelector((state) => state.auth.value);
 
 	const handlerSubmit = (e) => {
 		e.preventDefault();
@@ -58,6 +60,7 @@ function Form() {
 				<p>Don't haven an account?</p>
 				<Link to="/signup">Create your new account</Link>
 			</div>
+			<p className="response">{auth.message}</p>
 		</FormStyles>
 	);
 }

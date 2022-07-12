@@ -44,17 +44,10 @@ export const FormStyles = styled.div`
 		margin-top: 4vh;
 		cursor: pointer;
 	}
-	/* button {
-		font-size: 15px;
-		background: ${colors.sky};
-		border: none;
-		padding: 3vh 6%;
-		color: white;
-		border-radius: 10px;
-		margin-left: 82%;
+	.response {
 		margin-top: 4vh;
-		cursor: pointer;
-	} */
+		font-family: ${fonts.extra};
+	}
 	.footer {
 		display: flex;
 		align-items: center;
@@ -92,6 +85,11 @@ export const FormStyles = styled.div`
 		}
 		.disable {
 			margin-left: 77%;
+		}
+		.response {
+			margin-top: 0vh;
+			margin-bottom: 3vh;
+			font-family: ${fonts.extra};
 		}
 	}
 	@media screen and (max-width: 450px) {

@@ -4,8 +4,9 @@ import Form from './Form';
 // styled components
 import { LogInStyles } from '../../styles/login';
 
+
 function LogIn() {
-	return (
+      	return (
 		<LogInStyles>
 			<Wallpaper />
 			<Form />

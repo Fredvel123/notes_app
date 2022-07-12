@@ -10,7 +10,7 @@ export let token = '';
 
 describe('POST Create user', () => {
 	const signUrl = '/api/auth/signup';
-	it('no email - missing email', async () => {
+	test('no email - missing email', async () => {
 		const response = await request(app).post(signUrl).send({
 			username: user.username,
 			email: '',
@@ -22,7 +22,7 @@ describe('POST Create user', () => {
 		expect(response.body.isCreated).toBe(false);
 		expect(response.body.status).toBe(500);
 	});
-	it('password incorrect - password length', async () => {
+	test('password incorrect - password length', async () => {
 		const response = await request(app).post(signUrl).send({
 			username: user.username,
 			email: user.email,
@@ -33,7 +33,7 @@ describe('POST Create user', () => {
 		);
 		expect(response.body.isCreated).toBe(false);
 	});
-	it('username incorrect - username length', async () => {
+	test('username incorrect - username length', async () => {
 		const response = await request(app).post(signUrl).send({
 			username: 'user',
 			email: user.email,
@@ -44,14 +44,14 @@ describe('POST Create user', () => {
 		);
 		expect(response.body.isCreated).toBe(false);
 	});
-	it('user craeted successfully', async () => {
+	test('user created successfully', async () => {
 		const response = await request(app).post(signUrl).send(user);
 		expect(response.body.message).toBe(
 			'Your account was created successfully'
 		);
 		expect(response.body.isCreated).toBe(true);
 	});
-	it('email already exists', async () => {
+	test('email already exists', async () => {
 		const response = await request(app).post(signUrl).send(user);
 		expect(response.body.message).toBe(
 			'The email is already used, please add a new email'
@@ -60,10 +60,10 @@ describe('POST Create user', () => {
 	});
 });
 
-describe('POST Create user', () => {
+describe('POST Register user', () => {
 	const logInUrl = '/api/auth/login';
 
-	it('logIn successfully', async () => {
+	test('logIn successfully', async () => {
 		const response = await request(app).post(logInUrl).send({
 			password: user.password,
 			email: user.email,
